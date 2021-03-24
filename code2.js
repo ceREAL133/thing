@@ -2,12 +2,12 @@ const userInput = document.getElementById('userInput');
 let textholder = document.querySelector('.textHolder')
 let body = document.querySelector('.body');
 
-function onlyAlphabets(event) {
-    const regex = new RegExp (/[A-Za-z]/i);
-    console.log(event.target.value); 
-    return regex.test(event.target.value);
-    
-}
+const regex = new RegExp ('^[a-zA-z\\s]*$');
+    const tmp = userInput.value;
+    let save = '';
+    userInput.oninput = () => {
+        !regex.test(userInput.value) ? userInput.value = save : save = userInput.value
+    }
 
 const colorsMapping = {
     red: ['stop', 'red'],
